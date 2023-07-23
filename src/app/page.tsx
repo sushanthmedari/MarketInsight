@@ -16,9 +16,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="p-4 md:p-10 mx-auto max-w-7xl">
-      <Title>
-        View the 2021 balance sheet for any stock on the NASDAQ or NYSE
-      </Title>
+      {/* <Title>
+      MarketInsight
+      </Title> */}
 
       <div className="inline-block">
         <DropDown />
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
           {stock.length !== 0 ? (
             <BSTable stock={stock[0]?.bs} />
           ) : (
-            <Text>Search for a stock</Text>
+            <Text>View the 2021 balance sheet for a stock on the NASDAQ or NYSE.</Text>
           )}
         </Card>
       </div>
