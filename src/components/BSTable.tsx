@@ -57,7 +57,7 @@ import {
     //   <TableHeaderCell key={year}>{year}</TableHeaderCell>
     // ))}
 
-  const years = stock["2021"];
+  const years = stock["2021"].length > 0 ?  stock["2021"] : stock["2020"];
 
     return (
       <Table>
