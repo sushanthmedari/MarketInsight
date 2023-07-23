@@ -4,6 +4,10 @@ This finance application aims to provide retail investors and finance students w
 
 It will be similar to websites like [this](https://roic.ai/) and [this](https://www.stratosphere.io/), but with a bit more focus on the macroeconomic factors. The application will be built using Next.js , TypeScript and Tailwind for the frontend. It will use Python and Flask for the backend, ensuring a modern and efficient development stack.
 
+### How to locally run the application
+
+The app requires the Finnhub API key, currently this only requires a simple [sign up](https://finnhub.io/). 
+
 ### What problem does this solve?
 
 As a former finance student with experience in equity research, I recognize the challenges investors face when accessing and analyzing financial data for stock valuation. Staying updated with real-time market news and macroeconomic indicators can be time-consuming. This app intends to solve some of these problems.
