@@ -9,6 +9,7 @@ import BSTable from "@/components/BSTable";
 const Home: React.FC = () => {
   const stock = useStore((state) => state.stock);
   const fetchStock = useStore((state) => state.fetchStock);
+  const stockName = useStore((state) => state.stockName);
 
   useEffect(() => {
     fetchStock();
@@ -16,9 +17,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="p-4 md:p-10 mx-auto max-w-7xl">
-      {/* <Title>
-      MarketInsight
-      </Title> */}
 
       <div className="inline-block">
         <DropDown />
@@ -26,12 +24,12 @@ const Home: React.FC = () => {
       <div className="mt-14">
         <Card className="-z-30">
           {stock.length !== 0 ? (
-                   <><Title className="flex justify-center">Here is your stock</Title>
+                   <><Title className="flex justify-center">{stockName.name}</Title>
                    <BSTable stock={stock[0]?.bs} />
                  </>
           ) : (
             <Text>View the 2021 balance sheet for a stock on the NASDAQ or NYSE. 
-                  Application is still in development, so some search querys might return nothing.
+                  This application is still in development, so search querys might sometimes return nothing.
             </Text>
           )}
         </Card>

@@ -31,10 +31,21 @@ type StockInput = {
   title: string;
 };
 
+interface StockInfo {
+  ticker: string;
+  name: string; // Add the 'name' property here
+  is_etf: null | boolean;
+  exchange: string;
+}
+
+
 type StockStore = {
   stock: StockData[];
+  stockName: StockInfo; 
   fetchStock: () => void;
   addStock: (stock: StockInput) => void;
+  setSelectedStock: (selected: StockInfo) => void;
+
 };
 
 const URL = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -43,6 +54,10 @@ const URL = process.env.NEXT_PUBLIC_VERCEL_URL
 
 export const useStore = create<StockStore>((set) => ({
   stock: [],
+  stockName: {ticker: "",
+  name: "", 
+  is_etf: null,
+  exchange: ""},
   fetchStock: async () => {
     try {
       const response = await fetch(`${URL}/stocks`);
@@ -67,11 +82,12 @@ export const useStore = create<StockStore>((set) => ({
       if(Object.keys(createdStock.bs).length === 0){
         return;
       }
-      set({ stock: [createdStock] }); // Overwrite existing stock with the new one
+      set({ stock: [createdStock] });  
     } catch (error) {
       console.error("Error creating stock:", error);
     }
   },
+  setSelectedStock: (selected) => set({ stockName: selected }),  
 }));
 
  

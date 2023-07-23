@@ -1,19 +1,27 @@
 import { Fragment, useState } from "react";
 import { useStore } from "@/store";
 import { Combobox, Transition } from "@headlessui/react";
-import {
-  CheckIcon,
-  PaperAirplaneIcon,
-} from "@heroicons/react/20/solid";
+import { CheckIcon, PaperAirplaneIcon } from "@heroicons/react/20/solid";
 import combined from "@/assets/combined.json";
+
+interface StockInfo {
+  ticker: string;
+  name: string;  
+  is_etf: null | boolean;
+  exchange: string;
+}
 
 export default function DropDown() {
   const addStock = useStore((state) => state.addStock);
-  // const [selected, setSelected] = useState({});
-  const [selected, setSelected] = useState<{ ticker: string }>({ ticker: "" });
+  const setSelectedStock = useStore((state) => state.setSelectedStock);
+  const [selected, setSelected] = useState<StockInfo>({
+    ticker: "",
+    name: "", 
+    is_etf: null,
+    exchange: ""
+  });
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-
 
   const filteredStock =
     query === ""
@@ -27,15 +35,15 @@ export default function DropDown() {
           )
           .slice(0, 5);
 
-  // const ticker = selected === nasdaq.filter((stock) => stock.name) ? 'hi' : 'bye' ;
-
   const handleCreateStock = async (event: any) => {
     event.preventDefault();
-    if (Object.keys(selected).length === 0) return alert("Input cannot be empty");
+    if (Object.keys(selected).length === 0)
+      return alert("Input cannot be empty");
     try {
       setLoading(true);
       const stock = { title: selected.ticker };
       await addStock(stock);
+      setSelectedStock(selected);
     } catch (error) {
       console.error("Error creating stock item:", error);
     } finally {
@@ -43,10 +51,12 @@ export default function DropDown() {
     }
   };
 
+  console.log(selected);
+
   return (
     <form
-    onSubmit={handleCreateStock}
-    className="flex items-center space-x-2 mb-4"
+      onSubmit={handleCreateStock}
+      className="flex items-center space-x-2 mb-4"
     >
       <div className="absolute top-16 w-72">
         <Combobox value={selected} onChange={setSelected}>
@@ -89,7 +99,6 @@ export default function DropDown() {
                               selected ? "font-medium" : "font-normal"
                             }`}
                           >
-                            {/* {`${stock.name}:  ${stock.ticker}`} */}
                             {stock.name} {stock.ticker}
                           </span>
                           {selected ? (
@@ -118,7 +127,9 @@ export default function DropDown() {
             disabled={loading}
           >
             <PaperAirplaneIcon
-              className={`h-5 w-5 ${loading ? "text-gray-400": "text-green-400"}`}
+              className={`h-5 w-5 ${
+                loading ? "text-gray-400" : "text-green-400"
+              }`}
               aria-hidden="true"
             />
           </button>
