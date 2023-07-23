@@ -15,6 +15,7 @@ const Home: React.FC = () => {
     fetchStock();
   }, []);
 
+  // Replaces stock name when the stock name is unavailable.
   return (
     <div className="p-4 md:p-10 mx-auto max-w-7xl">
 

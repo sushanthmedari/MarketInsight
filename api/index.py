@@ -48,8 +48,9 @@ def create_stock():
         "cf": cf_data,
         "ic": ic_data
     }
+    global current_stock
     if len(result["bs"]) > 0:
-        current_stock.append(result)
+        current_stock = [result]
         return result, 201
     else:
         return result, 201
