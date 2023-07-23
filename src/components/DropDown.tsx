@@ -51,8 +51,6 @@ export default function DropDown() {
     }
   };
 
-  console.log(selected);
-
   return (
     <form
       onSubmit={handleCreateStock}
