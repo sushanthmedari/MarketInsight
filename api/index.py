@@ -50,10 +50,10 @@ def create_stock():
     }
     global current_stock
     if len(result["bs"]) > 0:
-        current_stock = [result]
-        return result, 201
+        current_stock = result
+        return current_stock, 201
     else:
-        return result, 201
+        return current_stock, 201
 
     
 

@@ -37,14 +37,14 @@ import {
   
   export default function BSTable({ stock }: { stock: BalanceSheet }) {
 
-  const years =  stock["2020"];
+  const years =  stock["2021"];
 
     return (
       <Table>
         <TableHead>
           <TableRow>
             <TableHeaderCell>Balance Sheet</TableHeaderCell>
-            <TableHeaderCell>2020 (in millions)</TableHeaderCell>
+            <TableHeaderCell>2021 (in millions)</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>

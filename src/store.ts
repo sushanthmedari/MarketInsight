@@ -33,7 +33,7 @@ type StockInput = {
 
 interface StockInfo {
   ticker: string;
-  name: string; // Add the 'name' property here
+  name: string; 
   is_etf: null | boolean;
   exchange: string;
 }
