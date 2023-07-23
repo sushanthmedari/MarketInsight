@@ -28,7 +28,7 @@ const Home: React.FC = () => {
                    <BSTable stock={stock[0]?.bs} />
                  </>
           ) : (
-            <Text>View the 2021 balance sheet for a stock on the NASDAQ or NYSE. 
+            <Text>View the 2020 balance sheet for a stock on the NASDAQ or NYSE. 
                   This application is still in development, so search querys might sometimes return nothing.
             </Text>
           )}
