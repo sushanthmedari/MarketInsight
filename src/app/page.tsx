@@ -15,6 +15,7 @@ const Home: React.FC = () => {
     fetchStock();
   }, []);
 
+  console.log(stock)
   // Replaces stock name when the stock name is unavailable.
   return (
     <div className="p-4 md:p-10 mx-auto max-w-7xl">
@@ -24,7 +25,7 @@ const Home: React.FC = () => {
       </div>
       <div className="mt-14">
         <Card className="-z-30">
-          {stock.length !== 0 ? (
+          {(stock.length !== 0 && typeof stock[0]?.bs["2021"] !== 'undefined')? (
                    <><Title className="flex justify-center">{stockName.name}</Title>
                    <BSTable stock={stock[0]?.bs} />
                  </>
