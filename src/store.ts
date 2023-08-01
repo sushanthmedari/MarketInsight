@@ -25,6 +25,7 @@ interface StockData {
       value: number;
     }[];
   };
+  news: Article[];
 }
 
 type StockInput = {
@@ -36,6 +37,25 @@ interface StockInfo {
   name: string; 
   is_etf: null | boolean;
   exchange: string;
+}
+
+interface Article {
+  author: string;
+  content: string;
+  created_at: string;
+  headline: string;
+  id: number;
+  images: Image[];
+  source: string;
+  summary: string;
+  symbols: string[];
+  updated_at: string;
+  url: string;
+}
+
+interface Image {
+  size: "large" | "small" | "thumb";
+  url: string;
 }
 
 
@@ -63,7 +83,6 @@ export const useStore = create<StockStore>((set) => ({
       const response = await fetch(`${URL}/stocks`);
       const stock = await response.json();
       set({ stock });
-      console.log(stock);
     } catch (error) {
       console.error("Error fetching stock:", error);
     }

@@ -36,7 +36,7 @@ import {
   }
   
   export default function BSTable({ stock }: { stock: BalanceSheet }) {
-
+   
   const years =  stock["2021"];
 
     return (
