@@ -101,6 +101,9 @@ export const useStore = create<StockStore>((set) => ({
       if(Object.keys(createdStock.bs).length === 0){
         return;
       }
+      else if(!createdStock.bs.hasOwnProperty("2021")){
+        return;
+      }
       set({ stock: [createdStock] });  
     } catch (error) {
       console.error("Error creating stock:", error);
