@@ -6,7 +6,7 @@ It will be similar to websites like [this](https://roic.ai/) and [this](https://
 
 ### How to locally run the application
 
-The app requires the Finnhub API key, currently this only requires a simple [sign up](https://finnhub.io/). 
+The app requires the Finnhub API key and the Alpaca Trading API keys. Currently for both you only require to sign up to get an API key, no credit card information needs to be provided.[Sign up to Finnhub here](https://finnhub.io/). [Sign up to Alpaca Markets here](https://alpaca.markets/).
 
 ### What problem does this solve?
 
@@ -14,17 +14,6 @@ As a former finance student with experience in equity research, I recognize the 
 
 The app aims to provide a centralized platform where users can easily access fundamental financial data, market news, and macroeconomic indicators specific to stocks. By consolidating these data sources, the app saves investors time and effort in their analysis process. The app will meet the needs of investors who value efficient access to financial data. 
 
-### Goals
-
-- Provide access to fundamental financial data: Users will be able to retrieve essential financial information for stocks, such as company financial statements, and key ratios.
-
-- Aggregate market news: The app delivers up-to-date market news for stocks, keeping users informed about recent developments.
-
-- Integrate macroeconomic data: Users gain access to relevant macroeconomic indicators for assessing broader market conditions.
-
-- User-friendly experience: The web app prioritizes a clean and intuitive user interface for easy navigation and stock search.
-
-- Expand with additional features: As more high-quality and accessible data sources is found, the app will incorporate additional functionalities.
 
 ### Technical breakdown
 
