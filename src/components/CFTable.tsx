@@ -8,7 +8,7 @@ import {
     Text
   } from '@tremor/react';
 
-  interface BalanceSheet {
+  interface CashFlow {
     [year: string]: {
       concept: string;
       label: string;
@@ -17,15 +17,15 @@ import {
     }[];
   }
 
-  export default function BSTable({ stock }: { stock: BalanceSheet }) {
+  export default function CFTable({ stock }: { stock: CashFlow }) {
    
-  const years = stock["2021"];
+  const years =  stock["2021"];
 
     return (
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell>Balance Sheet</TableHeaderCell>
+            <TableHeaderCell>Cash Flow</TableHeaderCell>
             <TableHeaderCell>2021 (in millions)</TableHeaderCell>
           </TableRow>
         </TableHead>

@@ -78,21 +78,6 @@ def create_stock():
 def healthchecker():
     return {"status": "success", "message": "Integrate Flask Framework with Next.js"}
 
-@app.route("/api/news", methods=["GET"])
-def get_news():
-    global alpaca_key, alpaca_secret
-    symbols = 'AAPL'
-    start_date = "2023-07-01T00:00:00Z"
-    end_date = "2023-07-30T11:59:59Z"
-    url = f'https://data.alpaca.markets/v1beta1/news?start={start_date}&end={end_date}&symbols={symbols}'
-    headers = {'content-type': 'application/json', 'Apca-Api-Key-Id': alpaca_key, 'Apca-Api-Secret-Key': alpaca_secret}
-    response = requests.get(url, headers=headers)
-    news_data = json.loads(response.text)
-
-    first_value = news_data.get("news", [])
-
-    return jsonify(first_value)
-
 
 if __name__ == "__main__":
     app.run()

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface StockData {
+export interface StockData {
   bs: {
     [year: string]: {
       concept: string;
@@ -28,18 +28,8 @@ interface StockData {
   news: Article[];
 }
 
-type StockInput = {
-  title: string;
-};
 
-interface StockInfo {
-  ticker: string;
-  name: string; 
-  is_etf: null | boolean;
-  exchange: string;
-}
-
-interface Article {
+export interface Article {
   author: string;
   content: string;
   created_at: string;
@@ -53,10 +43,22 @@ interface Article {
   url: string;
 }
 
-interface Image {
+export interface Image {
   size: "large" | "small" | "thumb";
   url: string;
 }
+
+type StockInput = {
+  title: string;
+};
+
+interface StockInfo {
+  ticker: string;
+  name: string; 
+  is_etf: null | boolean;
+  exchange: string;
+}
+
 
 
 type StockStore = {
